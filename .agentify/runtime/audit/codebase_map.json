@@ -1,0 +1,1389 @@
+{
+  "meta": {
+    "project_type": "Rust library workspace",
+    "languages": [
+      "Rust"
+    ],
+    "frameworks": [
+      "axum",
+      "tokio",
+      "tower",
+      "hyper"
+    ],
+    "domain_hypothesis": "HTTP routing and request-handling library",
+    "lifecycle": {
+      "sdlc_model": "GitHub Flow with issue triage, pull-request review, CI gates, and release-plz",
+      "issue_types": [
+        "bug_report",
+        "feature_request"
+      ],
+      "review_loop": {
+        "present": true,
+        "kind": "none"
+      },
+      "documentation_loop": {
+        "present": true,
+        "kind": "none"
+      },
+      "conditional_docs": {
+        "present": false,
+        "path": null,
+        "last_updated": null,
+        "entries_count": 0
+      },
+      "aiw_scripts": [],
+      "agent_definitions": {
+        "count": 0,
+        "paths": []
+      }
+    },
+    "documentation": {
+      "agents_md": null,
+      "agents_md_line_count": null,
+      "has_ai_docs": false,
+      "has_app_docs": false,
+      "has_specs": false,
+      "conditional_docs_path": null,
+      "readme_metrics": {
+        "present": true,
+        "line_count": 146,
+        "section_count": 10
+      },
+      "ai_docs_freshness": {
+        "last_updated": null,
+        "file_count": 0
+      },
+      "specs_archive": {
+        "present": false,
+        "file_count": 0,
+        "date_range": null
+      },
+      "postmortems_dir": null,
+      "changelog_present": true
+    },
+    "formats": [
+      "TOML",
+      "YAML",
+      "Markdown"
+    ]
+  },
+  "skeleton": {
+    "top_level_tree": [
+      ".github/",
+      "axum/",
+      "axum-core/",
+      "axum-extra/",
+      "axum-macros/",
+      "contrib/",
+      "examples/",
+      "Cargo.toml",
+      "Cargo.lock",
+      "README.md",
+      "CONTRIBUTING.md",
+      "CHANGELOG.md",
+      "deny.toml",
+      "release-plz.toml"
+    ],
+    "entry_points": [
+      {
+        "path": "Cargo.toml",
+        "role": "Rust workspace manifest and lint policy",
+        "language": "TOML",
+        "run_command": "cargo test --workspace"
+      },
+      {
+        "path": "axum/src/lib.rs",
+        "role": "Primary axum library crate entry point",
+        "language": "Rust",
+        "run_command": "cargo test -p axum"
+      }
+    ],
+    "code_test_mirror": {
+      "observed": false,
+      "pattern": "unknown"
+    },
+    "first_5_files_for_fresh_agent": [
+      {
+        "path": "README.md",
+        "why": "Project purpose, features, usage, safety, MSRV, and contribution links."
+      },
+      {
+        "path": "Cargo.toml",
+        "why": "Workspace members, Rust version, lint policy, and dependency/build structure."
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "why": "Maintainer workflow and contribution requirements."
+      },
+      {
+        "path": "axum/src/lib.rs",
+        "why": "Public crate API and module organization."
+      },
+      {
+        "path": ".github/workflows/CI.yml",
+        "why": "Authoritative CI validation commands and supported checks."
+      }
+    ],
+    "app_vs_agentic_layer": {
+      "app_layer": "Rust library workspace",
+      "agentic_layer": null,
+      "bleed_risk_paths": []
+    }
+  },
+  "module_graph": {
+    "edges": [
+      {
+        "from": "axum/src/routing/mod.rs",
+        "to": "axum/src/handler/mod.rs",
+        "kind": "import: Handler adapts handlers into routes"
+      },
+      {
+        "from": "axum/src/handler/mod.rs",
+        "to": "axum/src/extract/mod.rs",
+        "kind": "import: handler arguments use request extractors"
+      },
+      {
+        "from": "axum/src/handler/mod.rs",
+        "to": "axum/src/response/mod.rs",
+        "kind": "import: handler outputs implement IntoResponse"
+      },
+      {
+        "from": "axum/src/serve/mod.rs",
+        "to": "hyper/hyper_util/tokio",
+        "kind": "process boundary: serve drives incoming connections from tokio listener through hyper"
+      },
+      {
+        "from": "axum/src/routing/mod.rs",
+        "to": "axum/src/routing/path_router.rs",
+        "kind": "composition: Router owns path routing tree"
+      }
+    ],
+    "parallelizable_subtrees": [
+      [
+        "axum/src/middleware/",
+        "axum/src/response/",
+        "axum/src/extract/"
+      ],
+      [
+        "examples/",
+        "axum/tests/"
+      ]
+    ],
+    "shared_state": [],
+    "client_server_split": null,
+    "shared_abstractions": [
+      "axum-core",
+      "tower::Service",
+      "axum/src/util.rs"
+    ]
+  },
+  "type_contract_surface": {
+    "pydantic_models": [],
+    "typescript_interfaces": [
+      {
+        "path": "axum/src/routing/mod.rs",
+        "name": "Router",
+        "fields": [
+          "inner"
+        ]
+      }
+    ],
+    "db_models": [],
+    "idks": [],
+    "stable_types": [
+      "Router"
+    ],
+    "volatile_types": [],
+    "one_type_trace": {
+      "name": "Router",
+      "path": "axum/src/routing/mod.rs",
+      "flow": [
+        "Router<S> contains Arc<RouterInner<S>>.",
+        "Router::with_state changes the missing-state parameter.",
+        "Router::into_make_service and axum::serve consume the completed Router<()> service."
+      ]
+    },
+    "type_definitions": [
+      {
+        "path": "axum/src/routing/mod.rs",
+        "name": "Router",
+        "kind": "struct",
+        "language": "Rust",
+        "fields": [
+          "inner"
+        ]
+      }
+    ]
+  },
+  "conventions": {
+    "naming": {
+      "files": "Rust modules and source files use snake_case names (for example routing/method_routing.rs and serve/listener.rs); module roots use mod.rs.",
+      "classes": "unknown",
+      "functions": "Rust functions and tests use snake_case (for example into_make_service_with_connect_info and test_serve_local_addr); public APIs carry rustdoc comments.",
+      "branches": "unknown",
+      "commits": "CONTRIBUTING.md recommends a short first commit line, blank second line, and 72-column wrapping."
+    },
+    "error_handling": {
+      "raise_vs_return": "raise",
+      "custom_exceptions": false,
+      "log_then_throw": false
+    },
+    "logging": {
+      "pattern": "Use tracing::trace!/error! for server lifecycle, connection, and protocol diagnostics; tests capture tracing subscribers when asserting events.",
+      "observed": true
+    },
+    "state_passing": "constructor_injection",
+    "file_size": {
+      "observed_avg": 0,
+      "observed_max": 0
+    },
+    "patterns": []
+  },
+  "pitfalls": [
+    {
+      "module": "axum/src/routing/mod.rs",
+      "what": "Router::merge panics when both routers have a custom fallback; Router::nest also panics for an empty or root path.",
+      "consequence": "Dynamic or library-composed route construction can terminate the host process at startup instead of returning a recoverable error.",
+      "source_reference": "axum/src/routing/mod.rs",
+      "line_ref": 220
+    },
+    {
+      "module": "axum/src/routing/path_router.rs",
+      "what": "PathRouter route-layer and path composition enforce builder invariants through panic paths.",
+      "consequence": "Middleware or route changes that violate ordering or path-conflict rules fail during construction and require matching should_panic/regression tests.",
+      "source_reference": "axum/src/routing/path_router.rs",
+      "line_ref": 282
+    },
+    {
+      "module": "axum/src/extract/multipart.rs",
+      "what": "Multipart extraction is body-limit and header-format sensitive, with dedicated rejection behavior.",
+      "consequence": "Changes to upload parsing can alter 413/error behavior and should be treated as a security-sensitive compatibility surface.",
+      "source_reference": "axum/src/extract/multipart.rs",
+      "line_ref": 1
+    }
+  ],
+  "validation_surface": {
+    "test_command": "cargo test --locked --workspace --all-features --all-targets",
+    "test_runtime_seconds_estimate": 0,
+    "lint_command": "cargo clippy --locked --workspace --all-targets --all-features -- -D warnings",
+    "typecheck_command": "cargo hack --no-private --exclude axum-macros check-external-types --all-features",
+    "e2e_command": null,
+    "spec_compliance_evidence": [
+      "CI runs strict rustdoc for axum-core, axum, and axum-extra.",
+      "CI tests stable and beta, axum-macros on its pinned nightly, and Rust 1.80 MSRV.",
+      "CI checks root and examples workspaces independently."
+    ],
+    "severity_taxonomy": [],
+    "per_change_type": {
+      "chore": {
+        "mandatory": [
+          "cargo fmt --all --check",
+          "cargo clippy --locked --workspace --all-targets --all-features -- -D warnings",
+          "cargo test --locked --workspace --all-features --all-targets"
+        ],
+        "optional": []
+      },
+      "bug": {
+        "mandatory": [
+          "cargo fmt --all --check",
+          "cargo clippy --locked --workspace --all-targets --all-features -- -D warnings",
+          "add or extend a regression test under the affected crate",
+          "cargo test --locked --workspace --all-features --all-targets"
+        ],
+        "optional": []
+      },
+      "feature": {
+        "mandatory": [
+          "cargo fmt --all --check",
+          "cargo clippy --locked --workspace --all-targets --all-features -- -D warnings",
+          "cargo test --locked --workspace --all-features --all-targets",
+          "add unit/integration tests and strict rustdoc when public API changes"
+        ],
+        "optional": []
+      }
+    }
+  },
+  "operational_surface": {
+    "build": {
+      "command": "cargo build --workspace --all-features",
+      "recipe_file": "Cargo.toml"
+    },
+    "run": {
+      "command": "cargo run -p example-hello-world",
+      "env_vars_required": [],
+      "ports": [],
+      "services": [
+        "axum example server via tokio"
+      ],
+      "dependencies": []
+    },
+    "deploy": null,
+    "env_vars": [],
+    "ci_cd": {
+      "triggers": [
+        "push to main",
+        "push to v0.8.x",
+        "pull_request"
+      ],
+      "gates": [
+        "cargo clippy/fmt",
+        "cargo test",
+        "cargo doc",
+        "cargo-deny",
+        "cross-target checks",
+        "release-plz"
+      ],
+      "artifacts": []
+    },
+    "git_workflow": {
+      "main_branch": "main",
+      "branch_naming": "not documented",
+      "worktree_pattern": "not observed",
+      "cleanup": "not observed"
+    },
+    "port_ranges": {
+      "dev": "unknown"
+    },
+    "shutdown_procedure": {
+      "script": null,
+      "commands": [
+        "axum::serve(...).with_graceful_shutdown(...) is demonstrated for signal-driven shutdown"
+      ]
+    },
+    "spawned_subprocesses": []
+  },
+  "security_surface": {
+    "paths": {
+      "zero_access": [
+        ".env",
+        ".env.*",
+        "**/*.pem",
+        "**/*.key",
+        "**/secrets.*",
+        "**/id_rsa",
+        "**/id_ed25519"
+      ],
+      "read_only": [
+        ".agentify/policies/**",
+        ".agentify/runtime/**",
+        ".github/**",
+        "Cargo.lock",
+        "deny.toml",
+        "release-plz.toml"
+      ],
+      "no_delete": [
+        ".git/**",
+        ".agentify/**",
+        "Cargo.lock",
+        ".github/**"
+      ],
+      "fully_writable": []
+    },
+    "bash_safe_patterns": [],
+    "bash_blocked_patterns": [
+      "rm\\s+(-rf|-fr|--recursive|--force)",
+      "git\\s+push\\s+(-f|--force)",
+      "git\\s+reset\\s+--hard",
+      "sudo",
+      "curl\\s+[^\\s]*\\s+-T\\s"
+    ],
+    "banned_interpreters": [
+      "python",
+      "node",
+      "bash",
+      "sh",
+      "zsh"
+    ],
+    "env_allowlist": [
+      "CARGO_TERM_COLOR",
+      "CARGO_HOME",
+      "RUSTUP_HOME",
+      "PATH",
+      "HOME",
+      "USER",
+      "RUSTFLAGS",
+      "RUSTDOCFLAGS",
+      "RUST_LOG",
+      "MSRV"
+    ],
+    "production_credentials": [],
+    "damage_control_rules": [
+      "Never write or expose credentials from zero-access paths.",
+      "Learning writes are confined to the Agentify allowlist; application source, dependencies, workflows, policies, and runtime state require approval."
+    ],
+    "security_checklist": {
+      "tools": [],
+      "commands": [],
+      "paths": [],
+      "env": [],
+      "blocks": [],
+      "logs": []
+    }
+  },
+  "coverage": {
+    "D1_topography": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "Root inventory, README, and workspace manifest establish a Rust workspace centered on axum with library source under axum/src, examples, tests, CI, and contribution metadata.",
+      "evidence": [
+        {
+          "path": "Cargo.toml",
+          "excerpt": "[workspace]\nmembers = [\"axum\", \"axum-*\"]",
+          "kind": "positive"
+        },
+        {
+          "path": "README.md",
+          "excerpt": "`axum` is an HTTP routing and request-handling library that focuses on ergonomics and modularity.",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/lib.rs",
+          "excerpt": "#![forbid(unsafe_code)]",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D2_module_boundaries": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "axum/src separates routing, handler, extractor, response, middleware, and runtime transport layers with explicit imports and a Router-to-serve process boundary.",
+      "evidence": [
+        {
+          "path": "axum/src/routing/mod.rs",
+          "excerpt": "use crate::handler::Handler;",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/serve/mod.rs",
+          "excerpt": "use hyper::body::Incoming;",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/lib.rs",
+          "excerpt": "pub use self::routing::Router;",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D3_type_contract": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "Router is a documented public Rust contract with a generic missing-state parameter and Arc-backed inner routing state; the definition and service/state consumers are tracked in axum/src.",
+      "evidence": [
+        {
+          "path": "axum/src/routing/mod.rs",
+          "excerpt": "pub struct Router<S = ()> {\n    inner: Arc<RouterInner<S>>,\n}",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/routing/mod.rs",
+          "excerpt": "Thus, only `Router<()>` (i.e. without missing state) can be passed to [`serve`].",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D4_conventions": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "Rust code uses snake_case module/file and function names, public APIs are documented inline, tests use descriptive test_* names and #[should_panic], and runtime diagnostics use tracing macros.",
+      "evidence": [
+        {
+          "path": "axum/src/routing/mod.rs",
+          "excerpt": "pub fn into_make_service_with_connect_info<C>",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/routing/tests/nest.rs",
+          "excerpt": "#[should_panic(expected = \"Nesting at the root is no longer supported. Use merge instead.\")]",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/serve/mod.rs",
+          "excerpt": "trace!(\"received graceful shutdown signal. Telling tasks to shutdown\");",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D5_pitfalls": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "Routing composition has intentional panic-based invariants that can terminate an application during router construction, and the changelog records routing behavior as actively changing.",
+      "evidence": [
+        {
+          "path": "axum/src/routing/mod.rs",
+          "excerpt": "panic!(\"Cannot merge two `Router`s that both have a fallback\")",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/routing/tests/nest.rs",
+          "excerpt": "#[should_panic(expected = \"Nesting at the root is no longer supported. Use merge instead.\")]",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/CHANGELOG.md",
+          "excerpt": "Nesting at the root is no longer supported. Use `merge` instead.",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D6_validation": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "CI.yml defines locked workspace tests, clippy with warnings denied, rustfmt checks, strict docs, feature-matrix checks, MSRV/nightly tests, dependency/license checks, and cross-target checks; CONTRIBUTING.md requires tests for code changes.",
+      "evidence": [
+        {
+          "path": ".github/workflows/CI.yml",
+          "excerpt": "run: cargo clippy --locked --manifest-path ${{ matrix.workspace }}/Cargo.toml --workspace --all-targets --all-features -- -D warnings",
+          "kind": "positive"
+        },
+        {
+          "path": ".github/workflows/CI.yml",
+          "excerpt": "run: cargo test --locked --workspace --all-features --all-targets --manifest-path ${{ matrix.workspace }}/Cargo.toml",
+          "kind": "positive"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "excerpt": "In both of these cases, the pull request should include one or more tests to ensure that the crate does not regress in the future.",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D7_operational": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "This is a Rust library workspace; Cargo is the build/package entry point, examples demonstrate runtime serving on localhost:3000, and release-plz publishes through main/v0.8.x workflows only for tokio-rs.",
+      "evidence": [
+        {
+          "path": "Cargo.toml",
+          "excerpt": "[workspace]\nmembers = [\"axum\", \"axum-*\"]",
+          "kind": "positive"
+        },
+        {
+          "path": "examples/hello-world/src/main.rs",
+          "excerpt": "cargo run -p example-hello-world",
+          "kind": "positive"
+        },
+        {
+          "path": "examples/hello-world/src/main.rs",
+          "excerpt": "TcpListener::bind(\"127.0.0.1:3000\")",
+          "kind": "positive"
+        },
+        {
+          "path": ".github/workflows/release-plz.yml",
+          "excerpt": "branches:\n      - main\n      - v0.8.x",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D8_security": {
+      "status": "covered",
+      "confidence": "medium",
+      "evidence_summary": "The workspace forbids unsafe Rust, and the existing Agentify policy protects runtime/policy/workflow state from learning writes; repository ignore rules do not cover common secret filenames, so those paths must remain zero-access in audit operations.",
+      "evidence": [
+        {
+          "path": "Cargo.toml",
+          "excerpt": "unsafe_code = \"forbid\"",
+          "kind": "positive"
+        },
+        {
+          "path": ".agentify/policies/self-update-allowlist.json",
+          "excerpt": "Only .agentify agents, knowledge, history, manifest, and canonical ignore rules may self-update; policies, application source, dependencies, workflows, runtime code, and operational state are immutable to learning.",
+          "kind": "positive"
+        },
+        {
+          "path": ".gitignore",
+          "excerpt": "target\n.DS_Store\n.vscode",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D9_process": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "CONTRIBUTING.md documents issue discussion, triage, pull-request resolution and review, while GitHub issue templates identify bug and feature requests and CI.yml supplies repository validation gates.",
+      "evidence": [
+        {
+          "path": "CONTRIBUTING.md",
+          "excerpt": "In the majority of cases, issues are resolved by opening a Pull Request.",
+          "kind": "positive"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "excerpt": "Any Tokio, Hyperium, and Tower, axum community member is welcome to review any pull request.",
+          "kind": "positive"
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+          "excerpt": "name: 🐛 Bug Report",
+          "kind": "positive"
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+          "excerpt": "name: 💡 Feature Request",
+          "kind": "positive"
+        },
+        {
+          "path": ".github/workflows/CI.yml",
+          "excerpt": "run: cargo clippy --locked --manifest-path ${{ matrix.workspace }}/Cargo.toml --workspace --all-targets --all-features -- -D warnings",
+          "kind": "positive"
+        }
+      ]
+    },
+    "D10_documentation": {
+      "status": "covered",
+      "confidence": "high",
+      "evidence_summary": "README.md, CONTRIBUTING.md, crate rustdoc, and CHANGELOG.md are the repository documentation surfaces; Agentify-generated files are not treated as application documentation.",
+      "evidence": [
+        {
+          "path": "README.md",
+          "excerpt": "## High level features",
+          "kind": "positive"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "excerpt": "This guide will help you get started.",
+          "kind": "positive"
+        },
+        {
+          "path": "axum/src/lib.rs",
+          "excerpt": "//! # Routing",
+          "kind": "positive"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "excerpt": "# Changelog",
+          "kind": "positive"
+        }
+      ]
+    }
+  },
+  "open_questions": [
+    "No distinct agentic layer is part of the repository application architecture; .agentify-generated identities are excluded from process and documentation evidence."
+  ],
+  "exploration_log": [
+    {
+      "ts": "2026-08-27T10:16:57.950Z",
+      "action": "draft_bootstrap",
+      "target": ".",
+      "observation": "Created an honest gap-marked map to receive incremental audit evidence."
+    },
+    {
+      "ts": "2026-08-27T10:17:14.523Z",
+      "action": "gap_filler_delta",
+      "target": "D1_topography",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:17:14.527Z",
+      "action": "gap_filler_delta",
+      "target": "D1_topography",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:19:08.155Z",
+      "action": "gap_filler_delta",
+      "target": "D2_module_boundaries",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:19:08.157Z",
+      "action": "gap_filler_delta",
+      "target": "D2_module_boundaries",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:19:17.469Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:19:17.470Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:19:28.372Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:19:28.374Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:23:35.480Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:23:35.482Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:23:43.235Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:23:43.236Z",
+      "action": "gap_filler_delta",
+      "target": "D3_type_contract",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:25:41.234Z",
+      "action": "gap_filler_delta",
+      "target": "D4_conventions",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:25:41.235Z",
+      "action": "gap_filler_delta",
+      "target": "D4_conventions",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:25:50.386Z",
+      "action": "gap_filler_delta",
+      "target": "D5_pitfalls",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:26:03.515Z",
+      "action": "gap_filler_delta",
+      "target": "D6_validation",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:26:03.517Z",
+      "action": "gap_filler_delta",
+      "target": "D6_validation",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:26:12.138Z",
+      "action": "gap_filler_delta",
+      "target": "D7_operational",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:26:12.140Z",
+      "action": "gap_filler_delta",
+      "target": "D7_operational",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:26:27.834Z",
+      "action": "gap_filler_delta",
+      "target": "D8_security",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:26:27.838Z",
+      "action": "gap_filler_delta",
+      "target": "D8_security",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:26:38.424Z",
+      "action": "gap_filler_delta",
+      "target": "D9_process",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:26:38.425Z",
+      "action": "gap_filler_delta",
+      "target": "D9_process",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:26:47.882Z",
+      "action": "gap_filler_delta",
+      "target": "D10_documentation",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:26:47.884Z",
+      "action": "gap_filler_delta",
+      "target": "D10_documentation",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:41:35.724Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:42:51.643Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:43:00.647Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:43:00.649Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:43:11.868Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    },
+    {
+      "ts": "2026-08-27T10:43:11.870Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=deep_merge)"
+    },
+    {
+      "ts": "2026-08-27T10:45:24.630Z",
+      "action": "gap_filler_delta",
+      "target": "(no-dim)",
+      "observation": "merged delta from write_map_delta (strategy=shallow_overwrite)"
+    }
+  ],
+  "schema_version": "1",
+  "generated_at": "2026-08-27T10:16:57.950Z",
+  "concern_evidence": {
+    "concerns": [
+      {
+        "concern": "Routing and route composition",
+        "one_line": "Owns public Router and MethodRouter composition, path matching, fallbacks, and conversion into tower services.",
+        "covers": "Path syntax, method dispatch, nesting, merging, fallbacks, layers, state binding, URL parameters, HTTP method response rules, and routing tests/docs.",
+        "excludes": "Handler extraction implementation, middleware authoring, hyper transport, and application response/body implementations.",
+        "flows": [
+          {
+            "name": "Request dispatch",
+            "description": "A request is matched, method-dispatched, and finalized as a response.",
+            "steps": [
+              {
+                "path": "axum/src/routing/mod.rs",
+                "what_happens": "Router delegates request handling and fallback selection."
+              },
+              {
+                "path": "axum/src/routing/path_router.rs",
+                "what_happens": "PathRouter matches the URI and dispatches the endpoint."
+              },
+              {
+                "path": "axum/src/routing/method_routing.rs",
+                "what_happens": "MethodRouter selects the method endpoint and builds 405 Allow behavior."
+              }
+            ]
+          }
+        ],
+        "touchpoints": [
+          {
+            "path": "axum/src/routing/mod.rs",
+            "symbol": "Router and RouterInner",
+            "role": "Public route composition, fallback state, and service conversion.",
+            "line_range": [
+              86,
+              620
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/routing/path_router.rs",
+            "symbol": "PathRouter and Node",
+            "role": "Matchit-backed path matching, validation, nesting, and merging.",
+            "line_range": [
+              1,
+              396
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/routing/method_routing.rs",
+            "symbol": "MethodRouter and AllowHeader",
+            "role": "Method dispatch and overlap/Allow semantics.",
+            "line_range": [
+              1,
+              1450
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/routing/tests/mod.rs",
+            "symbol": "routing tests",
+            "role": "Pins composition and panic invariants.",
+            "line_range": [
+              1,
+              880
+            ],
+            "centrality": "supporting"
+          }
+        ],
+        "invariants": [
+          {
+            "rule": "Overlapping methods and conflicting custom fallbacks panic during construction.",
+            "why": "Method and fallback ownership must be unambiguous.",
+            "reference": "axum/src/routing/mod.rs"
+          },
+          {
+            "rule": "Root nesting is forbidden; use merge or fallback_service.",
+            "why": "The route tree has distinct root and fallback semantics.",
+            "reference": "axum/src/routing/mod.rs"
+          },
+          {
+            "rule": "GET handles HEAD unless an explicit HEAD endpoint takes precedence.",
+            "why": "This is the HTTP method contract.",
+            "reference": "axum/src/routing/method_routing.rs"
+          }
+        ],
+        "pitfalls": [
+          {
+            "risk": "Using route_layer before routes or expecting it to affect unmatched requests.",
+            "consequence": "Construction panics or the layer is skipped for 404s.",
+            "reference": "axum/src/routing/path_router.rs"
+          }
+        ],
+        "entry_questions": [
+          "Does the change alter path syntax, overlap, fallback inheritance, nesting, or merge behavior?",
+          "Does it preserve Router<S> versus Router<()> service-state semantics?"
+        ],
+        "validation": [
+          "cargo test -p axum routing"
+        ],
+        "spans_subtrees": [
+          "axum/src/routing",
+          "axum/src/docs/routing"
+        ],
+        "stability": "high",
+        "recurrence": "high",
+        "confidence": "high",
+        "last_updated": "2026-08-27T00:00:00.000Z"
+      },
+      {
+        "concern": "Request extraction, rejection, and body parsing",
+        "one_line": "Owns conversion of requests into typed extractor values while enforcing ordering, content types, body limits, and typed rejections.",
+        "covers": "FromRequest/FromRequestParts, request helpers, state references, body and form/JSON/multipart/path/query extraction, DefaultBodyLimit, rejection taxonomy, and docs/tests.",
+        "excludes": "Routing production, tower middleware composition, full body framing, WebSocket upgrade mechanics, and general error-handling layers.",
+        "flows": [
+          {
+            "name": "Bounded typed extraction",
+            "description": "Parts extractors run first, the final body extractor consumes a limited body, and failures become typed responses.",
+            "steps": [
+              {
+                "path": "axum/src/handler/mod.rs",
+                "what_happens": "Generated handlers execute parts extractors before the final body extractor."
+              },
+              {
+                "path": "axum/src/extract/mod.rs",
+                "what_happens": "The extract module exposes the core extractor contracts and feature-gated extractors, and provides shared content-type recognition."
+              },
+              {
+                "path": "axum-core/src/ext_traits/request.rs",
+                "what_happens": "with_limited_body applies configured or default body limits before collection."
+              },
+              {
+                "path": "axum/src/extract/rejection.rs",
+                "what_happens": "Body, content-type, and deserialization failures map to composite rejection responses."
+              }
+            ]
+          }
+        ],
+        "touchpoints": [
+          {
+            "path": "axum-core/src/extract/mod.rs",
+            "symbol": "FromRequest and FromRequestParts",
+            "role": "Core extractor contracts and blanket composition.",
+            "line_range": [
+              49,
+              113
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/extract/mod.rs",
+            "symbol": "extract module exports, has_content_type, and consume_body test",
+            "role": "Public extractor surface, feature-gated extractor composition, shared content-type check, and body-consumption regression coverage.",
+            "line_range": [
+              1,
+              86
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum-core/src/ext_traits/request.rs",
+            "symbol": "RequestExt::with_limited_body",
+            "role": "Body-limit and request extraction helpers.",
+            "line_range": [
+              17,
+              331
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/json.rs",
+            "symbol": "Json::from_request",
+            "role": "JSON content-type and deserialization behavior.",
+            "line_range": [
+              85,
+              188
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/extract/multipart.rs",
+            "symbol": "Multipart::from_request",
+            "role": "Multipart boundary and limit-error mapping.",
+            "line_range": [
+              67,
+              274
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/response/mod.rs",
+            "symbol": "IntoResponse reexports and typed response helpers",
+            "role": "Shared response contract used when extraction failures and extractor outputs become responses.",
+            "line_range": [
+              1,
+              83
+            ],
+            "centrality": "supporting"
+          },
+          {
+            "path": "axum/src/docs/extract.md",
+            "symbol": "extractor order and rejection handling",
+            "role": "User-facing extractor contract.",
+            "line_range": [
+              120,
+              210
+            ],
+            "centrality": "supporting"
+          }
+        ],
+        "invariants": [
+          {
+            "rule": "Only the final handler extractor may consume the request body.",
+            "why": "The body is a one-shot stream.",
+            "reference": "axum/src/handler/mod.rs"
+          },
+          {
+            "rule": "Body collection uses DefaultBodyLimit or an explicit limit.",
+            "why": "Body size is a security and compatibility boundary.",
+            "reference": "axum-core/src/ext_traits/request.rs"
+          },
+          {
+            "rule": "Json requires application/json or an application +json subtype.",
+            "why": "Unsupported content types reject before parsing.",
+            "reference": "axum/src/json.rs"
+          }
+        ],
+        "pitfalls": [
+          {
+            "risk": "A custom extractor reads the body without with_limited_body.",
+            "consequence": "The configured/default body limit may be bypassed.",
+            "reference": "axum-core/src/extract/default_body_limit.rs"
+          }
+        ],
+        "entry_questions": [
+          "Does the extractor consume the body, and is it last?",
+          "What content types, status codes, optional semantics, and body limits must remain stable?"
+        ],
+        "validation": [
+          "cargo test -p axum-core extract::request_parts::tests",
+          "cargo test -p axum extract::json::tests extract::form::tests extract::multipart::tests"
+        ],
+        "spans_subtrees": [
+          "axum-core/src/extract",
+          "axum/src/extract",
+          "axum/src/json.rs",
+          "axum/src/form.rs"
+        ],
+        "stability": "high",
+        "recurrence": "high",
+        "confidence": "high",
+        "last_updated": "2026-08-27T00:00:00.000Z"
+      },
+      {
+        "concern": "Server transport and graceful shutdown",
+        "one_line": "Owns axum::serve listener acceptance, hyper/tokio connection tasks, listener adapters, and signal-driven graceful draining.",
+        "covers": "Serve futures, accept retry, hyper-util adaptation, Tokio executor, IncomingStream/connect-info, connection limits, IO hooks, and shutdown examples/tests.",
+        "excludes": "Routing, handlers, middleware, application timeouts, and TLS/QUIC runtimes outside axum::serve.",
+        "flows": [
+          {
+            "name": "Serve and graceful drain",
+            "description": "The listener accepts connections, hyper serves them, and a signal drains in-flight tasks.",
+            "steps": [
+              {
+                "path": "axum/src/serve/mod.rs",
+                "what_happens": "Serve::run accepts listeners and spawns hyper connection tasks."
+              },
+              {
+                "path": "axum/src/serve/listener.rs",
+                "what_happens": "Listener implementations retry transient accept failures and provide adapters."
+              },
+              {
+                "path": "examples/graceful-shutdown/src/main.rs",
+                "what_happens": "The example supplies Ctrl-C/SIGTERM to with_graceful_shutdown."
+              }
+            ]
+          }
+        ],
+        "touchpoints": [
+          {
+            "path": "axum/src/serve/mod.rs",
+            "symbol": "serve, Serve, WithGracefulShutdown, handle_connection",
+            "role": "Server pipeline and shutdown lifecycle.",
+            "line_range": [
+              1,
+              700
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/serve/listener.rs",
+            "symbol": "Listener and ListenerExt",
+            "role": "Listener abstraction, retry, connection limits, and IO hooks.",
+            "line_range": [
+              1,
+              220
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/extract/connect_info.rs",
+            "symbol": "IncomingStream and Connected",
+            "role": "Connection metadata bridge into requests.",
+            "line_range": [
+              74,
+              170
+            ],
+            "centrality": "supporting"
+          },
+          {
+            "path": "axum/src/serve/mod.rs",
+            "symbol": "serve tests",
+            "role": "Pins shutdown, timeout, executor, and IO behavior.",
+            "line_range": [
+              935,
+              1020
+            ],
+            "centrality": "supporting"
+          }
+        ],
+        "invariants": [
+          {
+            "rule": "Serve without graceful shutdown is unending; graceful shutdown waits for connection tasks to drain.",
+            "why": "The accept loop and close channel define lifecycle completion.",
+            "reference": "axum/src/serve/mod.rs"
+          },
+          {
+            "rule": "Transient accept errors are logged and retried.",
+            "why": "Availability must survive transient listener failures.",
+            "reference": "axum/src/serve/listener.rs"
+          },
+          {
+            "rule": "Accepted IO and address types satisfy async, Send/static, and diagnostic bounds.",
+            "why": "hyper/tokio adapters and tasks require them.",
+            "reference": "axum/src/serve/listener.rs"
+          }
+        ],
+        "pitfalls": [
+          {
+            "risk": "Graceful shutdown is used without bounding in-flight handlers.",
+            "consequence": "The drain can wait indefinitely.",
+            "reference": "examples/graceful-shutdown/src/main.rs"
+          }
+        ],
+        "entry_questions": [
+          "Does the change affect accept retry, task spawning, or shutdown drain?",
+          "Can all in-flight work terminate before shutdown resolves?"
+        ],
+        "validation": [
+          "cargo test -p axum serve",
+          "cargo test -p axum --lib serve::tests::graceful_shutdown_completes_inflight_request"
+        ],
+        "spans_subtrees": [
+          "axum/src/serve",
+          "axum/src/extract/connect_info.rs",
+          "examples/graceful-shutdown"
+        ],
+        "stability": "high",
+        "recurrence": "high",
+        "confidence": "high",
+        "last_updated": "2026-08-27T00:00:00.000Z"
+      },
+      {
+        "concern": "Middleware and error-to-response composition",
+        "one_line": "Owns async-fn middleware, extractor gates, request/response mappers, and conversion of fallible tower services into axum responses.",
+        "covers": "from_fn, from_extractor, map_request, map_response, Next, ResponseAxumBody, HandleError, Extension layers, Router/MethodRouter attachment, ordering, response composition, docs, and tests.",
+        "excludes": "Routing tree composition, extractor implementation, hyper transport, body framing, and procedural macro plumbing.",
+        "flows": [
+          {
+            "name": "Middleware request and error path",
+            "description": "Middleware extracts/transforms a request, delegates to an inner service, and normalizes output or errors to Response.",
+            "steps": [
+              {
+                "path": "axum/src/middleware/from_fn.rs",
+                "what_happens": "FromFnLayer runs extractors and invokes user middleware with Next."
+              },
+              {
+                "path": "axum/src/error_handling/mod.rs",
+                "what_happens": "HandleError maps inner service errors through a user handler and IntoResponse."
+              },
+              {
+                "path": "axum/src/response/mod.rs",
+                "what_happens": "The response module exposes IntoResponse, Response, Html, and NoContent composition used to materialize normalized middleware and error outputs."
+              },
+              {
+                "path": "axum/src/util.rs",
+                "what_happens": "MapIntoResponse normalizes arbitrary response-like outputs."
+              }
+            ]
+          }
+        ],
+        "touchpoints": [
+          {
+            "path": "axum/src/middleware/from_fn.rs",
+            "symbol": "FromFnLayer and Next",
+            "role": "Async-function middleware and continuation semantics.",
+            "line_range": [
+              173,
+              410
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/middleware/map_request.rs",
+            "symbol": "MapRequestLayer and IntoMapRequestResult",
+            "role": "Request transformation and short-circuiting.",
+            "line_range": [
+              161,
+              391
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/middleware/map_response.rs",
+            "symbol": "MapResponseLayer",
+            "role": "Response transformation.",
+            "line_range": [
+              145,
+              343
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/error_handling/mod.rs",
+            "symbol": "HandleErrorLayer and HandleError",
+            "role": "Fallible service to response conversion.",
+            "line_range": [
+              13,
+              232
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/response/mod.rs",
+            "symbol": "IntoResponse, Response, Html, and NoContent",
+            "role": "Core public response contract and concrete response composition for middleware output and handled errors.",
+            "line_range": [
+              1,
+              83
+            ],
+            "centrality": "core"
+          },
+          {
+            "path": "axum/src/docs/middleware.md",
+            "symbol": "middleware guide",
+            "role": "Ordering and error-handling guidance.",
+            "line_range": [
+              1,
+              220
+            ],
+            "centrality": "supporting"
+          }
+        ],
+        "invariants": [
+          {
+            "rule": "Public middleware converts rejections/errors to Response and is generally Infallible.",
+            "why": "Tower/hyper composition cannot leave failures as unhandled service errors.",
+            "reference": "axum/src/middleware/from_fn.rs"
+          },
+          {
+            "rule": "Fallible layers require HandleErrorLayer or ServiceExt::handle_error before Router attachment.",
+            "why": "Router layer bounds require infallible-compatible errors.",
+            "reference": "axum/src/error_handling/mod.rs"
+          },
+          {
+            "rule": "Router::layer runs after routing while route_layer applies only to matched routes.",
+            "why": "Attachment position determines scope and rewrite behavior.",
+            "reference": "axum/src/docs/routing/layer.md"
+          }
+        ],
+        "pitfalls": [
+          {
+            "risk": "Consuming the body in middleware without reconstructing it.",
+            "consequence": "Downstream handlers/extractors see an empty body.",
+            "reference": "examples/consume-body-in-extractor-or-middleware/src/main.rs"
+          }
+        ],
+        "entry_questions": [
+          "Does middleware need state, body access, short-circuiting, or response transformation?",
+          "Is the inner service fallible, and where should HandleError attach?"
+        ],
+        "validation": [
+          "cargo test -p axum --lib middleware::from_fn::tests",
+          "cargo test -p axum --lib routing::tests::handle_error"
+        ],
+        "spans_subtrees": [
+          "axum/src/middleware",
+          "axum/src/error_handling",
+          "axum/src/response",
+          "examples/consume-body-in-extractor-or-middleware"
+        ],
+        "stability": "high",
+        "recurrence": "high",
+        "confidence": "high",
+        "last_updated": "2026-08-27T00:00:00.000Z"
+      }
+    ],
+    "not_concerns": [
+      {
+        "candidate": "src, axum/src, or examples as directory names",
+        "why_rejected": "Directories are not specialties; the retained concerns cross those boundaries."
+      },
+      {
+        "candidate": "client/frontend application",
+        "why_rejected": "No client or frontend source subtree was observed; axum/src is a server-side Rust library."
+      },
+      {
+        "candidate": "database/authentication subsystem",
+        "why_rejected": "No repository-wide database or authentication flow exists in the core library; example-specific dependencies are not a core specialty."
+      },
+      {
+        "candidate": "procedural macro subsystem",
+        "why_rejected": "The axum-macros tracer timed out, so no unsupported macro concern claims are recorded; future audit may trace it."
+      },
+      {
+        "candidate": ".github/workflows/CI.yml",
+        "why_rejected": "This tracked workflow orchestrates repository-wide Cargo formatting, lint, documentation, dependency, target, and test gates; it does not own routing, extraction, middleware, response, or server-transport behavior, which are recorded under validation_surface rather than a runtime specialty."
+      },
+      {
+        "candidate": "CONTRIBUTING.md",
+        "why_rejected": "This tracked document defines repository-wide issue, pull-request, review, testing, and commit practices; it is lifecycle evidence rather than an end-to-end runtime behavior specialty."
+      }
+    ]
+  }
+}

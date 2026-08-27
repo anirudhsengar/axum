@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "agent_id": "orchestrator",
+  "revision": 1,
+  "role": "orchestrator",
+  "display_name": "Repository Orchestrator",
+  "domain": null,
+  "status": "active",
+  "read_only": true,
+  "write_authority": "none",
+  "github_write_authority": "none",
+  "memory_kinds": [
+    "codebase",
+    "episode",
+    "orchestrator",
+    "policy",
+    "procedure",
+    "specialist"
+  ],
+  "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+  "evidence": [
+    {
+      "evidence_id": "evidence-635abe8c1f80d6c181f2fd8c",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/benches/benches.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "620a335ccc55de1e0f3d677c801d21883ba721d2932b120410d7e2e221ab13cb",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/benches/benches.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "anirudhsengar"
+    }
+  ],
+  "created_at": "2026-08-27T10:16:54.944Z",
+  "updated_at": "2026-08-27T10:16:54.944Z",
+  "content_digest": "91f5b076fc723ccf5b8b4aa555cf08d4f3d266d4854c0ee0e55c2b930e9818ae"
+}

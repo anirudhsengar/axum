@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "event_type": "candidate_decision",
+  "candidate_id": "installer-self-update-policy-v1",
+  "memory_id": "self-update-allowlist",
+  "candidate": {
+    "schema_version": "1",
+    "candidate_id": "installer-self-update-policy-v1",
+    "memory_id": "self-update-allowlist",
+    "kind": "policy",
+    "proposed_by_agent_id": "knowledge-maintainer",
+    "owning_agent_id": "knowledge-maintainer",
+    "statement": "Automatic learning is confined to versioned Agentify knowledge, identity, history, manifest, and canonical ignore-rule paths.",
+    "source_type": "maintainer_instruction",
+    "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+    "evidence": [
+      {
+        "evidence_id": "evidence-8f27f3641f5e51dbe3cb9163",
+        "source_type": "maintainer_instruction",
+        "repository_path": "axum/benches/benches.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "620a335ccc55de1e0f3d677c801d21883ba721d2932b120410d7e2e221ab13cb",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/benches/benches.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "anirudhsengar"
+      }
+    ],
+    "confidence": "verified",
+    "dependent_paths": [
+      ".agentify/manifest.json"
+    ],
+    "invalidation_conditions": [
+      "trusted installer upgrade changes the self-update boundary"
+    ],
+    "contradicts": [],
+    "human_attribution": {
+      "actor": "anirudhsengar",
+      "source_ref": "installer:3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "accepted_at": "2026-08-20T16:49:53.000Z"
+    },
+    "tags": [
+      "allowlist",
+      "policy",
+      "self-update"
+    ],
+    "proposed_at": "2026-08-20T16:49:53.000Z",
+    "payload": {
+      "policy_key": "self-update-allowlist",
+      "rule": "Only .agentify agents, knowledge, history, manifest, and canonical ignore rules may self-update; policies, application source, dependencies, workflows, runtime code, and operational state are immutable to learning.",
+      "protected_paths": [
+        ".agentify/policies",
+        ".agentify/runtime",
+        ".agentify/state-transactions",
+        ".github",
+        "package-lock.json",
+        "package.json"
+      ],
+      "allowed_tools": [],
+      "forbidden_actions": [
+        "application source update",
+        "dependency update",
+        "permission expansion",
+        "policy update",
+        "runtime code update",
+        "workflow update"
+      ],
+      "approval_required": true,
+      "numeric_limit": null,
+      "unit": null
+    },
+    "candidate_digest": "04db04977a7b46c7e5add72318b3ad73f0296a82702f8200f736792681be3905"
+  },
+  "decision": "accepted",
+  "actor": "knowledge-maintainer",
+  "reason": "install the maintainer-attributed self-update allowlist",
+  "occurred_at": "2026-08-27T10:16:55.076Z",
+  "candidate_digest": "04db04977a7b46c7e5add72318b3ad73f0296a82702f8200f736792681be3905",
+  "resulting_memory_id": "self-update-allowlist",
+  "event_digest": "6d07f4a4f1ca61e488ffc724a00d236986f7a0d391bcaa42c514043d2c41a1bc"
+}

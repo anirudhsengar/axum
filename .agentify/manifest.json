@@ -1,0 +1,127 @@
+{
+  "format": "agentify_team_memory",
+  "schema_version": "1",
+  "revision": 10,
+  "root": ".agentify",
+  "repository_id": "anirudhsengar/axum",
+  "history_mode": "snapshot-v1",
+  "created_at": "2026-08-27T10:16:54.944Z",
+  "updated_at": "2026-08-27T10:55:07.314Z",
+  "entries": [
+    {
+      "path": ".agentify/.gitignore",
+      "kind": "ignore_rules",
+      "sha256": "2b36b4d4e3c6eceefe15702c59b6176359f9321c6bd093dfdbcb87d900400a6c",
+      "bytes": 95
+    },
+    {
+      "path": ".agentify/agents/orchestrator.json",
+      "kind": "agent_identity",
+      "sha256": "13cca003c0e6aa50274c9caafae92441a9e8c7ffd3a7b725a404c09ac6a9424b",
+      "bytes": 1248
+    },
+    {
+      "path": ".agentify/agents/roles/builder.json",
+      "kind": "agent_identity",
+      "sha256": "89724d51e85ad1e2f1d4559a722273a203cb075cb4f0ac23f01c72c8958d1204",
+      "bytes": 1220
+    },
+    {
+      "path": ".agentify/agents/roles/knowledge-maintainer.json",
+      "kind": "agent_identity",
+      "sha256": "6bc55c478b8b75f71f882fc7fcc9522465396c7707d87726a624020ae8f51697",
+      "bytes": 1267
+    },
+    {
+      "path": ".agentify/agents/roles/reviewer.json",
+      "kind": "agent_identity",
+      "sha256": "7dfb72ac399b842af828b60dc141a1acc0e925dd65adf60817461d50b031674d",
+      "bytes": 1225
+    },
+    {
+      "path": ".agentify/agents/specialists/specialist-middleware-and-error-to-response-composition.json",
+      "kind": "agent_identity",
+      "sha256": "eb49b845934520af84bada64d9e3157c16e554e2a5a0f2ac9ab5b4a984b0bbd9",
+      "bytes": 5059
+    },
+    {
+      "path": ".agentify/agents/specialists/specialist-request-extraction-rejection-and-body-parsing.json",
+      "kind": "agent_identity",
+      "sha256": "1cae3320b38b6e703d70e76c818807a78a8d510a92a57fe01658705ac7cb9848",
+      "bytes": 5623
+    },
+    {
+      "path": ".agentify/agents/specialists/specialist-routing-and-route-composition.json",
+      "kind": "agent_identity",
+      "sha256": "8741efd8c1610dc8293accecc513b9fa1e2bc1ef87c67a1706338dbfd6e2891c",
+      "bytes": 3770
+    },
+    {
+      "path": ".agentify/agents/specialists/specialist-server-transport-and-graceful-shutdown.json",
+      "kind": "agent_identity",
+      "sha256": "b2bf870913945069cee7fa04c6aa7431134320a3f2c9e3cf135b76448dbb4122",
+      "bytes": 2557
+    },
+    {
+      "path": ".agentify/history/candidates/candidate-4fc4a7513f853db28c3cb095bc1fc104.json",
+      "kind": "candidate_decision",
+      "sha256": "5b410e62f0cabd2045c53fbfe1d8594c2374876b78bca1302cf2a96dfcb66a91",
+      "bytes": 12207
+    },
+    {
+      "path": ".agentify/history/candidates/candidate-7ba8e4ed1901f2963fac9adaf001ae2f.json",
+      "kind": "candidate_decision",
+      "sha256": "108589a9c263e777ca0cdbea0a4739dbd621743b56341fb2a766b56528265f85",
+      "bytes": 9671
+    },
+    {
+      "path": ".agentify/history/candidates/candidate-7daed1412f6b613871f2446dd8e9c477.json",
+      "kind": "candidate_decision",
+      "sha256": "c28555dba906e184452ac8f47edfa61d2da5522265d1c288eb5e28e2442be360",
+      "bytes": 7714
+    },
+    {
+      "path": ".agentify/history/candidates/candidate-97c606c0b78f7e1fb7659522f2ba45f6.json",
+      "kind": "candidate_decision",
+      "sha256": "817a9779d84ece629698985e559fa20a3393f8d06c6b8e46a6a273c644893a96",
+      "bytes": 12847
+    },
+    {
+      "path": ".agentify/history/candidates/installer-self-update-policy-v1.json",
+      "kind": "candidate_decision",
+      "sha256": "1e36cdbda42053886069077afb59e95b1aacff8ea1df38241e98f2bf7429443d",
+      "bytes": 3190
+    },
+    {
+      "path": ".agentify/knowledge/specialists/specialist-profile-specialist-middleware-and-error-to-response-composition-90ed255657ca262b.json",
+      "kind": "memory_record",
+      "sha256": "d23ea084373f73ecaacda8c83f2b5eb2b2856c9df3f11508929af9aa4b4243b1",
+      "bytes": 11093
+    },
+    {
+      "path": ".agentify/knowledge/specialists/specialist-profile-specialist-request-extraction-rejection-and-body-parsing-1db02523348549b3.json",
+      "kind": "memory_record",
+      "sha256": "0a553d5be03bad3351d6bb388eb4f469b85868fbd6a3c714de50255015a83032",
+      "bytes": 11689
+    },
+    {
+      "path": ".agentify/knowledge/specialists/specialist-profile-specialist-routing-and-route-composition-28662fc93c059fed.json",
+      "kind": "memory_record",
+      "sha256": "25ba7b247ad16d2382aebcfc408b3692c9bf4bc1717e354933278e73fbe1a532",
+      "bytes": 8687
+    },
+    {
+      "path": ".agentify/knowledge/specialists/specialist-profile-specialist-server-transport-and-graceful-shutdown-c81f52389e4e3dcb.json",
+      "kind": "memory_record",
+      "sha256": "3fbd1a6fdb45915fa8a07c60c11671515fba6a02a091387dc696c02fb7e1b9a9",
+      "bytes": 6800
+    },
+    {
+      "path": ".agentify/policies/self-update-allowlist.json",
+      "kind": "memory_record",
+      "sha256": "febdbf34559576e1efe85a9ea42afaa80675a5b9264cc9371622b151dbfe9d43",
+      "bytes": 2642
+    }
+  ],
+  "root_digest": "ff9eb9423fa8752300f9ce5f98fb99bbde84675eb15d040d25c7ac57496232dc"
+}

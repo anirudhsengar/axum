@@ -1,0 +1,43 @@
+{
+  "format": "agentify_task_policy_configuration",
+  "schema_version": "2",
+  "configured": false,
+  "repository": {
+    "repository_id": "1348260945",
+    "full_name": "anirudhsengar/axum",
+    "default_branch": "main",
+    "current_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+    "current_branch": "main",
+    "origin_url": "https://github.com/anirudhsengar/axum.git",
+    "actor_login": "anirudhsengar",
+    "actor_permission": "admin",
+    "default_branch_policy": "unprotected"
+  },
+  "model_network_posture": "denied-by-default",
+  "dependency_change_policy": "maintainer-approval-required",
+  "application_merge": "disabled",
+  "application_deployment": "disabled",
+  "protected_path_policy_known": false,
+  "validation_services_attested": false,
+  "validation_execution": {
+    "mode": "maintainer-approved-unsandboxed",
+    "child_environment_credentials": "removed",
+    "repository_mutation": "detected-and-rejected",
+    "network_isolation": "not-provided",
+    "os_sandbox": "not-provided"
+  },
+  "validation_approval": {
+    "mode": "maintainer-approved-unsandboxed",
+    "approved_by": "anirudhsengar",
+    "approved_at": "2026-08-27T10:16:53.173Z",
+    "package_json_sha256": "8194d024f126f275e525d60f32c5bf24888432ca5776931009beb3e6a4e4ac97",
+    "manifest_path": "Cargo.toml",
+    "lockfile": {
+      "path": "Cargo.lock",
+      "sha256": "430c583e921c5a89e9bf10f5d8198a5109d68f4d0512c5d5c22daa3dc9ef8314"
+    },
+    "commands_sha256": "d45deafa3828f9cd6329c68076dfd04cc58c25789686bcc45244a8a2ea1fedb2"
+  },
+  "policy": null,
+  "instructions": "Agentify remains fail-closed until every installer readiness blocker is resolved, installer attestation for unsandboxed repository validation is recorded, and validation passes."
+}

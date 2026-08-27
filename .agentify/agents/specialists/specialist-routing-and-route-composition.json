@@ -1,0 +1,89 @@
+{
+  "schema_version": "1",
+  "agent_id": "specialist-routing-and-route-composition",
+  "revision": 1,
+  "role": "specialist",
+  "display_name": "Routing And Route Composition Specialist",
+  "domain": "Routing and route composition",
+  "status": "active",
+  "read_only": true,
+  "write_authority": "none",
+  "github_write_authority": "none",
+  "memory_kinds": [
+    "codebase",
+    "episode",
+    "procedure",
+    "specialist"
+  ],
+  "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+  "evidence": [
+    {
+      "evidence_id": "evidence-21361fe41114fd33e8700ab0",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/routing/method_routing.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "d91b8dc73b3a584c57055a6fcf2aa88241c0ee7875663e6c103844741c4c9119",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/method_routing.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-54f14c06ae899d7a18090581",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/routing/tests/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "49d3727b04345009300a76dbfd484b2535765deafe4724911912b2e1b20a5356",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/tests/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-86a53f95117b8b8da3074569",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/handler/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "09353766e4a95254a0126bf99ad924241ad458edbfd8a09e3ea998d87f8103ff",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/handler/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-f7c15ed8bdaf9d53ac5d3b4a",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/routing/path_router.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "84e683428cb90484fd74b54b2005a1941bfaff24229f2e90e469dd4ec493586c",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/path_router.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-ffa0a6b11c8345cefcdd68e3",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/routing/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "7ecd918b9285812f0edfad5cc48d9ad6268c2dae9cc497089fbec6cc2eb08b7d",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    }
+  ],
+  "created_at": "2026-08-27T10:55:06.877Z",
+  "updated_at": "2026-08-27T10:55:06.877Z",
+  "content_digest": "efdfef3cb41d7c75172af7f5ab4a953a60167c916d42a37f308dacdeae40e3a8"
+}

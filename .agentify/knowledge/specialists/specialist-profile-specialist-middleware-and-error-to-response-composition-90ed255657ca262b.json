@@ -1,0 +1,269 @@
+{
+  "schema_version": "1",
+  "memory_id": "specialist-profile-specialist-middleware-and-error-to-response-composition-90ed255657ca262b",
+  "revision": 1,
+  "kind": "specialist",
+  "owning_agent_id": "specialist-middleware-and-error-to-response-composition",
+  "statement": "Owns async-fn middleware, extractor gates, request/response mappers, and conversion of fallible tower services into axum responses.",
+  "source_type": "validated_bootstrap",
+  "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+  "evidence": [
+    {
+      "evidence_id": "evidence-03b42ff03f04670da46e6d41",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/response/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "921f7776cc07fcd7266ea11b9013ddfa4b0ce5daa25eb0352c914dc75c4e121e",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/response/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-292d090c46993edd5c3230c2",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/middleware/from_fn.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "46a0505714a0a89012552e267437dcf38dcc3dbd294fd8bdf476620fa4d51bf1",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/middleware/from_fn.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-3f18d19771923a2af6c864d1",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/middleware/map_request.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "d3c83c454f24b88ac153c62bb569c143e805569ffb5f01405ec7c6377089037e",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/middleware/map_request.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-6b58f968aaa49660422f1871",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/middleware/map_response.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "52bd757baee9dafd45edc9d87761a59dfebe0977dde53f25a4c59c3f8216705b",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/middleware/map_response.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-8003a4fc29df9589ce3b8399",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/docs/middleware.md",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "b6d306e5d2381f8d66a4638a54936a702e044da96dd2e11583a7a700df711a61",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/docs/middleware.md",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-86a53f95117b8b8da3074569",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/handler/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "09353766e4a95254a0126bf99ad924241ad458edbfd8a09e3ea998d87f8103ff",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/handler/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-d8d68d06116332f923d87e82",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/error_handling/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "31244358a1d14744ec60d9a15e6acf97cbfdd891a07b066535cb38ac733814e5",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/error_handling/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    }
+  ],
+  "confidence": "high",
+  "freshness": "current",
+  "dependent_paths": [
+    "axum/src/docs/middleware.md",
+    "axum/src/error_handling/mod.rs",
+    "axum/src/handler/mod.rs",
+    "axum/src/middleware/from_fn.rs",
+    "axum/src/middleware/map_request.rs",
+    "axum/src/middleware/map_response.rs",
+    "axum/src/response/mod.rs"
+  ],
+  "invalidation_conditions": [
+    "Revalidate when any specialist freshness dependency changes or disappears."
+  ],
+  "superseded_by": null,
+  "contradicts": [],
+  "human_attribution": null,
+  "tags": [
+    "concern-middleware-and-error-to-response-composition",
+    "specialist-profile"
+  ],
+  "accepted_candidate_ids": [
+    "candidate-4fc4a7513f853db28c3cb095bc1fc104"
+  ],
+  "created_at": "2026-08-27T10:55:06.192Z",
+  "updated_at": "2026-08-27T10:55:06.192Z",
+  "semantic_digest": "ad3769d349cecc4343daf74c78b409b5db5d014a1bdcb148daee12cce6ef9dc4",
+  "payload": {
+    "specialist_id": "specialist-middleware-and-error-to-response-composition",
+    "concern": "Middleware and error-to-response composition",
+    "one_line": "Owns async-fn middleware, extractor gates, request/response mappers, and conversion of fallible tower services into axum responses.",
+    "covers": "from_fn, from_extractor, map_request, map_response, Next, ResponseAxumBody, HandleError, Extension layers, Router/MethodRouter attachment, ordering, response composition, docs, and tests.",
+    "excludes": "Routing tree composition, extractor implementation, hyper transport, body framing, and procedural macro plumbing.",
+    "flows": [
+      {
+        "name": "Middleware request and error path",
+        "description": "Middleware extracts/transforms a request, delegates to an inner service, and normalizes output or errors to Response.",
+        "steps": [
+          {
+            "path": "axum/src/middleware/from_fn.rs",
+            "what_happens": "FromFnLayer runs extractors and invokes user middleware with Next."
+          },
+          {
+            "path": "axum/src/error_handling/mod.rs",
+            "what_happens": "HandleError maps inner service errors through a user handler and IntoResponse."
+          },
+          {
+            "path": "axum/src/response/mod.rs",
+            "what_happens": "The response module exposes IntoResponse, Response, Html, and NoContent composition used to materialize normalized middleware and error outputs."
+          }
+        ]
+      }
+    ],
+    "touchpoints": [
+      {
+        "path": "axum/src/docs/middleware.md",
+        "symbol": "middleware guide",
+        "role": "Ordering and error-handling guidance.",
+        "line_range": [
+          1,
+          220
+        ],
+        "centrality": "supporting"
+      },
+      {
+        "path": "axum/src/error_handling/mod.rs",
+        "symbol": "HandleErrorLayer and HandleError",
+        "role": "Fallible service to response conversion.",
+        "line_range": [
+          13,
+          232
+        ],
+        "centrality": "core"
+      },
+      {
+        "path": "axum/src/handler/mod.rs",
+        "symbol": null,
+        "role": "Shared repository dependency connected to this concern by the audited module graph.",
+        "line_range": null,
+        "centrality": "supporting"
+      },
+      {
+        "path": "axum/src/middleware/from_fn.rs",
+        "symbol": "FromFnLayer and Next",
+        "role": "Async-function middleware and continuation semantics.",
+        "line_range": [
+          173,
+          410
+        ],
+        "centrality": "core"
+      },
+      {
+        "path": "axum/src/middleware/map_request.rs",
+        "symbol": "MapRequestLayer and IntoMapRequestResult",
+        "role": "Request transformation and short-circuiting.",
+        "line_range": [
+          161,
+          391
+        ],
+        "centrality": "core"
+      },
+      {
+        "path": "axum/src/middleware/map_response.rs",
+        "symbol": "MapResponseLayer",
+        "role": "Response transformation.",
+        "line_range": [
+          145,
+          343
+        ],
+        "centrality": "core"
+      },
+      {
+        "path": "axum/src/response/mod.rs",
+        "symbol": "IntoResponse, Response, Html, and NoContent",
+        "role": "Core public response contract and concrete response composition for middleware output and handled errors.",
+        "line_range": [
+          1,
+          83
+        ],
+        "centrality": "core"
+      }
+    ],
+    "invariants": [
+      {
+        "rule": "Public middleware converts rejections/errors to Response and is generally Infallible.",
+        "why": "Tower/hyper composition cannot leave failures as unhandled service errors.",
+        "reference": "axum/src/middleware/from_fn.rs"
+      },
+      {
+        "rule": "Fallible layers require HandleErrorLayer or ServiceExt::handle_error before Router attachment.",
+        "why": "Router layer bounds require infallible-compatible errors.",
+        "reference": "axum/src/error_handling/mod.rs"
+      },
+      {
+        "rule": "Router::layer runs after routing while route_layer applies only to matched routes.",
+        "why": "Attachment position determines scope and rewrite behavior.",
+        "reference": "axum/src/docs/routing/layer.md"
+      }
+    ],
+    "pitfalls": [
+      {
+        "risk": "Consuming the body in middleware without reconstructing it.",
+        "consequence": "Downstream handlers/extractors see an empty body.",
+        "reference": "examples/consume-body-in-extractor-or-middleware/src/main.rs"
+      }
+    ],
+    "entry_questions": [
+      "Does middleware need state, body access, short-circuiting, or response transformation?",
+      "Is the inner service fallible, and where should HandleError attach?"
+    ],
+    "context_paths": [
+      "axum/src/docs/middleware.md",
+      "axum/src/error_handling/mod.rs",
+      "axum/src/handler/mod.rs",
+      "axum/src/middleware/from_fn.rs",
+      "axum/src/middleware/map_request.rs",
+      "axum/src/middleware/map_response.rs",
+      "axum/src/response/mod.rs"
+    ],
+    "related_specialists": [
+      "specialist-request-extraction-rejection-and-body-parsing",
+      "specialist-routing-and-route-composition"
+    ],
+    "validation_commands": []
+  },
+  "content_digest": "53822e7edf288e1e6bf3d9b3d22b6284a1f65b8d8e720c5805526eaa3b69bb30"
+}

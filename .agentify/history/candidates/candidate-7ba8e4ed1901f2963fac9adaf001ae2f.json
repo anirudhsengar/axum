@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "event_type": "candidate_decision",
+  "candidate_id": "candidate-7ba8e4ed1901f2963fac9adaf001ae2f",
+  "memory_id": "specialist-profile-specialist-routing-and-route-composition-28662fc93c059fed",
+  "candidate": {
+    "schema_version": "1",
+    "memory_id": "specialist-profile-specialist-routing-and-route-composition-28662fc93c059fed",
+    "kind": "specialist",
+    "proposed_by_agent_id": "orchestrator",
+    "owning_agent_id": "specialist-routing-and-route-composition",
+    "statement": "Owns public Router and MethodRouter composition, path matching, fallbacks, and conversion into tower services.",
+    "source_type": "validated_bootstrap",
+    "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+    "evidence": [
+      {
+        "evidence_id": "evidence-21361fe41114fd33e8700ab0",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/routing/method_routing.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "d91b8dc73b3a584c57055a6fcf2aa88241c0ee7875663e6c103844741c4c9119",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/method_routing.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-54f14c06ae899d7a18090581",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/routing/tests/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "49d3727b04345009300a76dbfd484b2535765deafe4724911912b2e1b20a5356",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/tests/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-86a53f95117b8b8da3074569",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/handler/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "09353766e4a95254a0126bf99ad924241ad458edbfd8a09e3ea998d87f8103ff",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/handler/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-f7c15ed8bdaf9d53ac5d3b4a",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/routing/path_router.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "84e683428cb90484fd74b54b2005a1941bfaff24229f2e90e469dd4ec493586c",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/path_router.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-ffa0a6b11c8345cefcdd68e3",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/routing/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "7ecd918b9285812f0edfad5cc48d9ad6268c2dae9cc497089fbec6cc2eb08b7d",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/routing/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      }
+    ],
+    "confidence": "high",
+    "dependent_paths": [
+      "axum/src/handler/mod.rs",
+      "axum/src/routing/method_routing.rs",
+      "axum/src/routing/mod.rs",
+      "axum/src/routing/path_router.rs",
+      "axum/src/routing/tests/mod.rs"
+    ],
+    "invalidation_conditions": [
+      "Revalidate when any specialist freshness dependency changes or disappears."
+    ],
+    "contradicts": [],
+    "human_attribution": null,
+    "tags": [
+      "concern-routing-and-route-composition",
+      "specialist-profile"
+    ],
+    "proposed_at": "2026-08-20T16:49:53.000Z",
+    "payload": {
+      "specialist_id": "specialist-routing-and-route-composition",
+      "concern": "Routing and route composition",
+      "one_line": "Owns public Router and MethodRouter composition, path matching, fallbacks, and conversion into tower services.",
+      "covers": "Path syntax, method dispatch, nesting, merging, fallbacks, layers, state binding, URL parameters, HTTP method response rules, and routing tests/docs.",
+      "excludes": "Handler extraction implementation, middleware authoring, hyper transport, and application response/body implementations.",
+      "flows": [
+        {
+          "name": "Request dispatch",
+          "description": "A request is matched, method-dispatched, and finalized as a response.",
+          "steps": [
+            {
+              "path": "axum/src/routing/mod.rs",
+              "what_happens": "Router delegates request handling and fallback selection."
+            },
+            {
+              "path": "axum/src/routing/path_router.rs",
+              "what_happens": "PathRouter matches the URI and dispatches the endpoint."
+            },
+            {
+              "path": "axum/src/routing/method_routing.rs",
+              "what_happens": "MethodRouter selects the method endpoint and builds 405 Allow behavior."
+            }
+          ]
+        }
+      ],
+      "touchpoints": [
+        {
+          "path": "axum/src/handler/mod.rs",
+          "symbol": null,
+          "role": "Shared repository dependency connected to this concern by the audited module graph.",
+          "line_range": null,
+          "centrality": "supporting"
+        },
+        {
+          "path": "axum/src/routing/method_routing.rs",
+          "symbol": "MethodRouter and AllowHeader",
+          "role": "Method dispatch and overlap/Allow semantics.",
+          "line_range": [
+            1,
+            1450
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/routing/mod.rs",
+          "symbol": "Router and RouterInner",
+          "role": "Public route composition, fallback state, and service conversion.",
+          "line_range": [
+            86,
+            620
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/routing/path_router.rs",
+          "symbol": "PathRouter and Node",
+          "role": "Matchit-backed path matching, validation, nesting, and merging.",
+          "line_range": [
+            1,
+            396
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/routing/tests/mod.rs",
+          "symbol": "routing tests",
+          "role": "Pins composition and panic invariants.",
+          "line_range": [
+            1,
+            880
+          ],
+          "centrality": "supporting"
+        }
+      ],
+      "invariants": [
+        {
+          "rule": "Overlapping methods and conflicting custom fallbacks panic during construction.",
+          "why": "Method and fallback ownership must be unambiguous.",
+          "reference": "axum/src/routing/mod.rs"
+        },
+        {
+          "rule": "Root nesting is forbidden; use merge or fallback_service.",
+          "why": "The route tree has distinct root and fallback semantics.",
+          "reference": "axum/src/routing/mod.rs"
+        },
+        {
+          "rule": "GET handles HEAD unless an explicit HEAD endpoint takes precedence.",
+          "why": "This is the HTTP method contract.",
+          "reference": "axum/src/routing/method_routing.rs"
+        }
+      ],
+      "pitfalls": [
+        {
+          "risk": "Using route_layer before routes or expecting it to affect unmatched requests.",
+          "consequence": "Construction panics or the layer is skipped for 404s.",
+          "reference": "axum/src/routing/path_router.rs"
+        }
+      ],
+      "entry_questions": [
+        "Does it preserve Router<S> versus Router<()> service-state semantics?",
+        "Does the change alter path syntax, overlap, fallback inheritance, nesting, or merge behavior?"
+      ],
+      "context_paths": [
+        "axum/src/handler/mod.rs",
+        "axum/src/routing/method_routing.rs",
+        "axum/src/routing/mod.rs",
+        "axum/src/routing/path_router.rs",
+        "axum/src/routing/tests/mod.rs"
+      ],
+      "related_specialists": [
+        "specialist-middleware-and-error-to-response-composition",
+        "specialist-request-extraction-rejection-and-body-parsing"
+      ],
+      "validation_commands": []
+    },
+    "candidate_id": "candidate-7ba8e4ed1901f2963fac9adaf001ae2f",
+    "candidate_digest": "6cd306d503886057e806d7798255ed999f24f0e634207dad807bb4bf7ba0f60e"
+  },
+  "decision": "accepted",
+  "actor": "knowledge-maintainer",
+  "reason": "accept specialist portfolio b6389beec512e2495e406d88391ad79be16f14882853b458039f8f19e3b51d7a",
+  "occurred_at": "2026-08-27T10:55:06.990Z",
+  "candidate_digest": "6cd306d503886057e806d7798255ed999f24f0e634207dad807bb4bf7ba0f60e",
+  "resulting_memory_id": "specialist-profile-specialist-routing-and-route-composition-28662fc93c059fed",
+  "event_digest": "08ec949c9d5a2a1fe63a0b116e0a91ed18515707c3c9af10dd42258a2c681d72"
+}

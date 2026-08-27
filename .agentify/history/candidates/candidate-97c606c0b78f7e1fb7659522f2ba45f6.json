@@ -1,0 +1,297 @@
+{
+  "schema_version": "1",
+  "event_type": "candidate_decision",
+  "candidate_id": "candidate-97c606c0b78f7e1fb7659522f2ba45f6",
+  "memory_id": "specialist-profile-specialist-request-extraction-rejection-and-body-parsing-1db02523348549b3",
+  "candidate": {
+    "schema_version": "1",
+    "memory_id": "specialist-profile-specialist-request-extraction-rejection-and-body-parsing-1db02523348549b3",
+    "kind": "specialist",
+    "proposed_by_agent_id": "orchestrator",
+    "owning_agent_id": "specialist-request-extraction-rejection-and-body-parsing",
+    "statement": "Owns conversion of requests into typed extractor values while enforcing ordering, content types, body limits, and typed rejections.",
+    "source_type": "validated_bootstrap",
+    "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+    "evidence": [
+      {
+        "evidence_id": "evidence-03b42ff03f04670da46e6d41",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/response/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "921f7776cc07fcd7266ea11b9013ddfa4b0ce5daa25eb0352c914dc75c4e121e",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/response/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-079545cbb0b5fd1b77e313b8",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/extract/multipart.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "823b835363bda30c27f9182d0a701e728d4c4b63b2cab5229f798f3f467ac8b4",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/extract/multipart.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-2e3b1cff2795d62f1a0d3213",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/extract/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "a25d6a30f69a35d1f6c89bef5aed330e96b180f3c438b831004d4f8c1eda170f",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/extract/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-36f79256c7be9ae124e67319",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/json.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "eb08fb6ca463beb474e99f2294474c73d936c83e14835d892e2cc796714880c7",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/json.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-5624b0f396f866375ee4a58b",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum-core/src/ext_traits/request.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "630a931c1c4ee0f6232e7934a0ff4d08a2cc1854587e48c87af12cb93611b935",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum-core/src/ext_traits/request.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-86a53f95117b8b8da3074569",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/handler/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "09353766e4a95254a0126bf99ad924241ad458edbfd8a09e3ea998d87f8103ff",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/handler/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-c18c195d14e98ff596385565",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum/src/docs/extract.md",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "bc181268688b97505bc784d1cf4c231a8dfc880dc6855b2504076805bce68ee6",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/docs/extract.md",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      },
+      {
+        "evidence_id": "evidence-c6b432dd9407181218c8ae01",
+        "source_type": "validated_bootstrap",
+        "repository_path": "axum-core/src/extract/mod.rs",
+        "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+        "sha256": "d636b894e6a90cb3ac74f0e5f551a2a87a549c12a49d7ccea5a7422da66d71b2",
+        "line_start": null,
+        "line_end": null,
+        "external_ref": null,
+        "description": "Tracked repository evidence for specialist and procedure discovery: axum-core/src/extract/mod.rs",
+        "observed_at": "2026-08-20T16:49:53.000Z",
+        "actor": "agentify-specialist-discovery"
+      }
+    ],
+    "confidence": "high",
+    "dependent_paths": [
+      "axum-core/src/ext_traits/request.rs",
+      "axum-core/src/extract/mod.rs",
+      "axum/src/docs/extract.md",
+      "axum/src/extract/mod.rs",
+      "axum/src/extract/multipart.rs",
+      "axum/src/handler/mod.rs",
+      "axum/src/json.rs",
+      "axum/src/response/mod.rs"
+    ],
+    "invalidation_conditions": [
+      "Revalidate when any specialist freshness dependency changes or disappears."
+    ],
+    "contradicts": [],
+    "human_attribution": null,
+    "tags": [
+      "concern-request-extraction-rejection-and-body-parsing",
+      "specialist-profile"
+    ],
+    "proposed_at": "2026-08-20T16:49:53.000Z",
+    "payload": {
+      "specialist_id": "specialist-request-extraction-rejection-and-body-parsing",
+      "concern": "Request extraction, rejection, and body parsing",
+      "one_line": "Owns conversion of requests into typed extractor values while enforcing ordering, content types, body limits, and typed rejections.",
+      "covers": "FromRequest/FromRequestParts, request helpers, state references, body and form/JSON/multipart/path/query extraction, DefaultBodyLimit, rejection taxonomy, and docs/tests.",
+      "excludes": "Routing production, tower middleware composition, full body framing, WebSocket upgrade mechanics, and general error-handling layers.",
+      "flows": [
+        {
+          "name": "Bounded typed extraction",
+          "description": "Parts extractors run first, the final body extractor consumes a limited body, and failures become typed responses.",
+          "steps": [
+            {
+              "path": "axum/src/extract/mod.rs",
+              "what_happens": "The extract module exposes the core extractor contracts and feature-gated extractors, and provides shared content-type recognition."
+            },
+            {
+              "path": "axum-core/src/ext_traits/request.rs",
+              "what_happens": "with_limited_body applies configured or default body limits before collection."
+            }
+          ]
+        }
+      ],
+      "touchpoints": [
+        {
+          "path": "axum-core/src/ext_traits/request.rs",
+          "symbol": "RequestExt::with_limited_body",
+          "role": "Body-limit and request extraction helpers.",
+          "line_range": [
+            17,
+            331
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum-core/src/extract/mod.rs",
+          "symbol": "FromRequest and FromRequestParts",
+          "role": "Core extractor contracts and blanket composition.",
+          "line_range": [
+            49,
+            113
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/docs/extract.md",
+          "symbol": "extractor order and rejection handling",
+          "role": "User-facing extractor contract.",
+          "line_range": [
+            120,
+            210
+          ],
+          "centrality": "supporting"
+        },
+        {
+          "path": "axum/src/extract/mod.rs",
+          "symbol": "extract module exports, has_content_type, and consume_body test",
+          "role": "Public extractor surface, feature-gated extractor composition, shared content-type check, and body-consumption regression coverage.",
+          "line_range": [
+            1,
+            86
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/extract/multipart.rs",
+          "symbol": "Multipart::from_request",
+          "role": "Multipart boundary and limit-error mapping.",
+          "line_range": [
+            67,
+            274
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/handler/mod.rs",
+          "symbol": null,
+          "role": "Shared repository dependency connected to this concern by the audited module graph.",
+          "line_range": null,
+          "centrality": "supporting"
+        },
+        {
+          "path": "axum/src/json.rs",
+          "symbol": "Json::from_request",
+          "role": "JSON content-type and deserialization behavior.",
+          "line_range": [
+            85,
+            188
+          ],
+          "centrality": "core"
+        },
+        {
+          "path": "axum/src/response/mod.rs",
+          "symbol": "IntoResponse reexports and typed response helpers",
+          "role": "Shared response contract used when extraction failures and extractor outputs become responses.",
+          "line_range": [
+            1,
+            83
+          ],
+          "centrality": "supporting"
+        }
+      ],
+      "invariants": [
+        {
+          "rule": "Only the final handler extractor may consume the request body.",
+          "why": "The body is a one-shot stream.",
+          "reference": "axum/src/handler/mod.rs"
+        },
+        {
+          "rule": "Body collection uses DefaultBodyLimit or an explicit limit.",
+          "why": "Body size is a security and compatibility boundary.",
+          "reference": "axum-core/src/ext_traits/request.rs"
+        },
+        {
+          "rule": "Json requires application/json or an application +json subtype.",
+          "why": "Unsupported content types reject before parsing.",
+          "reference": "axum/src/json.rs"
+        }
+      ],
+      "pitfalls": [
+        {
+          "risk": "A custom extractor reads the body without with_limited_body.",
+          "consequence": "The configured/default body limit may be bypassed.",
+          "reference": "axum-core/src/extract/default_body_limit.rs"
+        }
+      ],
+      "entry_questions": [
+        "Does the extractor consume the body, and is it last?",
+        "What content types, status codes, optional semantics, and body limits must remain stable?"
+      ],
+      "context_paths": [
+        "axum-core/src/ext_traits/request.rs",
+        "axum-core/src/extract/mod.rs",
+        "axum/src/docs/extract.md",
+        "axum/src/extract/mod.rs",
+        "axum/src/extract/multipart.rs",
+        "axum/src/handler/mod.rs",
+        "axum/src/json.rs",
+        "axum/src/response/mod.rs"
+      ],
+      "related_specialists": [
+        "specialist-middleware-and-error-to-response-composition",
+        "specialist-routing-and-route-composition"
+      ],
+      "validation_commands": []
+    },
+    "candidate_id": "candidate-97c606c0b78f7e1fb7659522f2ba45f6",
+    "candidate_digest": "1fecc88098a70c13a986307e16177d57d35a1ccdd49bfb4b556f62563a46f8f4"
+  },
+  "decision": "accepted",
+  "actor": "knowledge-maintainer",
+  "reason": "accept specialist portfolio b6389beec512e2495e406d88391ad79be16f14882853b458039f8f19e3b51d7a",
+  "occurred_at": "2026-08-27T10:55:06.661Z",
+  "candidate_digest": "1fecc88098a70c13a986307e16177d57d35a1ccdd49bfb4b556f62563a46f8f4",
+  "resulting_memory_id": "specialist-profile-specialist-request-extraction-rejection-and-body-parsing-1db02523348549b3",
+  "event_digest": "6e59fa0200adc43ffd139553147ba8c6f8d6e28c5cdf96e6db67fa963cb5a980"
+}

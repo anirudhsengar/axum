@@ -1,0 +1,175 @@
+{
+  "schema_version": "1",
+  "memory_id": "specialist-profile-specialist-server-transport-and-graceful-shutdown-c81f52389e4e3dcb",
+  "revision": 1,
+  "kind": "specialist",
+  "owning_agent_id": "specialist-server-transport-and-graceful-shutdown",
+  "statement": "Owns axum::serve listener acceptance, hyper/tokio connection tasks, listener adapters, and signal-driven graceful draining.",
+  "source_type": "validated_bootstrap",
+  "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+  "evidence": [
+    {
+      "evidence_id": "evidence-22aa5a05cda6b6714961c343",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/extract/connect_info.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "d59709f888674c3716291221187c763a44b964dbbc9b796e11117aab4c1fc753",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/extract/connect_info.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-24238744796128186a481f13",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/serve/listener.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "b4db480596099da969d0720c0623318fb5d720907a3b4defd9e8476b80bbaab9",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/serve/listener.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-265109677030dfce2f9ddb92",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/serve/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "1ec72d2128a5600fb847f7133ae4a3588327c8048c53132d50f59eb2dfb986d4",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/serve/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    }
+  ],
+  "confidence": "high",
+  "freshness": "current",
+  "dependent_paths": [
+    "axum/src/extract/connect_info.rs",
+    "axum/src/serve/listener.rs",
+    "axum/src/serve/mod.rs"
+  ],
+  "invalidation_conditions": [
+    "Revalidate when any specialist freshness dependency changes or disappears."
+  ],
+  "superseded_by": null,
+  "contradicts": [],
+  "human_attribution": null,
+  "tags": [
+    "concern-server-transport-and-graceful-shutdown",
+    "specialist-profile"
+  ],
+  "accepted_candidate_ids": [
+    "candidate-7daed1412f6b613871f2446dd8e9c477"
+  ],
+  "created_at": "2026-08-27T10:55:07.277Z",
+  "updated_at": "2026-08-27T10:55:07.277Z",
+  "semantic_digest": "a88082a2fcfe13198e70cd263971c01a0f5e440a284dc754f77cf3aa05531ef1",
+  "payload": {
+    "specialist_id": "specialist-server-transport-and-graceful-shutdown",
+    "concern": "Server transport and graceful shutdown",
+    "one_line": "Owns axum::serve listener acceptance, hyper/tokio connection tasks, listener adapters, and signal-driven graceful draining.",
+    "covers": "Serve futures, accept retry, hyper-util adaptation, Tokio executor, IncomingStream/connect-info, connection limits, IO hooks, and shutdown examples/tests.",
+    "excludes": "Routing, handlers, middleware, application timeouts, and TLS/QUIC runtimes outside axum::serve.",
+    "flows": [
+      {
+        "name": "Serve and graceful drain",
+        "description": "The listener accepts connections, hyper serves them, and a signal drains in-flight tasks.",
+        "steps": [
+          {
+            "path": "axum/src/serve/mod.rs",
+            "what_happens": "Serve::run accepts listeners and spawns hyper connection tasks."
+          },
+          {
+            "path": "axum/src/serve/listener.rs",
+            "what_happens": "Listener implementations retry transient accept failures and provide adapters."
+          }
+        ]
+      }
+    ],
+    "touchpoints": [
+      {
+        "path": "axum/src/extract/connect_info.rs",
+        "symbol": "IncomingStream and Connected",
+        "role": "Connection metadata bridge into requests.",
+        "line_range": [
+          74,
+          170
+        ],
+        "centrality": "supporting"
+      },
+      {
+        "path": "axum/src/serve/listener.rs",
+        "symbol": "Listener and ListenerExt",
+        "role": "Listener abstraction, retry, connection limits, and IO hooks.",
+        "line_range": [
+          1,
+          220
+        ],
+        "centrality": "core"
+      },
+      {
+        "path": "axum/src/serve/mod.rs",
+        "symbol": "serve tests",
+        "role": "Pins shutdown, timeout, executor, and IO behavior.",
+        "line_range": [
+          935,
+          1020
+        ],
+        "centrality": "supporting"
+      },
+      {
+        "path": "axum/src/serve/mod.rs",
+        "symbol": "serve, Serve, WithGracefulShutdown, handle_connection",
+        "role": "Server pipeline and shutdown lifecycle.",
+        "line_range": [
+          1,
+          700
+        ],
+        "centrality": "core"
+      }
+    ],
+    "invariants": [
+      {
+        "rule": "Serve without graceful shutdown is unending; graceful shutdown waits for connection tasks to drain.",
+        "why": "The accept loop and close channel define lifecycle completion.",
+        "reference": "axum/src/serve/mod.rs"
+      },
+      {
+        "rule": "Transient accept errors are logged and retried.",
+        "why": "Availability must survive transient listener failures.",
+        "reference": "axum/src/serve/listener.rs"
+      },
+      {
+        "rule": "Accepted IO and address types satisfy async, Send/static, and diagnostic bounds.",
+        "why": "hyper/tokio adapters and tasks require them.",
+        "reference": "axum/src/serve/listener.rs"
+      }
+    ],
+    "pitfalls": [
+      {
+        "risk": "Graceful shutdown is used without bounding in-flight handlers.",
+        "consequence": "The drain can wait indefinitely.",
+        "reference": "examples/graceful-shutdown/src/main.rs"
+      }
+    ],
+    "entry_questions": [
+      "Can all in-flight work terminate before shutdown resolves?",
+      "Does the change affect accept retry, task spawning, or shutdown drain?"
+    ],
+    "context_paths": [
+      "axum/src/extract/connect_info.rs",
+      "axum/src/serve/listener.rs",
+      "axum/src/serve/mod.rs"
+    ],
+    "related_specialists": [],
+    "validation_commands": []
+  },
+  "content_digest": "1007eebe76724a12ee9931badde01e11f680bd06ad597ae34b0f11e98ae299f3"
+}

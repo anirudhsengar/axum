@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "memory_id": "self-update-allowlist",
+  "revision": 1,
+  "kind": "policy",
+  "owning_agent_id": "knowledge-maintainer",
+  "statement": "Automatic learning is confined to versioned Agentify knowledge, identity, history, manifest, and canonical ignore-rule paths.",
+  "source_type": "maintainer_instruction",
+  "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+  "evidence": [
+    {
+      "evidence_id": "evidence-8f27f3641f5e51dbe3cb9163",
+      "source_type": "maintainer_instruction",
+      "repository_path": "axum/benches/benches.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "620a335ccc55de1e0f3d677c801d21883ba721d2932b120410d7e2e221ab13cb",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/benches/benches.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "anirudhsengar"
+    }
+  ],
+  "confidence": "verified",
+  "freshness": "current",
+  "dependent_paths": [
+    ".agentify/manifest.json"
+  ],
+  "invalidation_conditions": [
+    "trusted installer upgrade changes the self-update boundary"
+  ],
+  "superseded_by": null,
+  "contradicts": [],
+  "human_attribution": {
+    "actor": "anirudhsengar",
+    "source_ref": "installer:3d78036dcac289d6c1d54934708acb6a5bd73686",
+    "accepted_at": "2026-08-20T16:49:53.000Z"
+  },
+  "tags": [
+    "allowlist",
+    "policy",
+    "self-update"
+  ],
+  "accepted_candidate_ids": [
+    "installer-self-update-policy-v1"
+  ],
+  "created_at": "2026-08-27T10:16:55.076Z",
+  "updated_at": "2026-08-27T10:16:55.076Z",
+  "semantic_digest": "967048c7568c55ece3020e204260db26b35b5bfbb14ba0fe91b86210bca5373e",
+  "payload": {
+    "policy_key": "self-update-allowlist",
+    "rule": "Only .agentify agents, knowledge, history, manifest, and canonical ignore rules may self-update; policies, application source, dependencies, workflows, runtime code, and operational state are immutable to learning.",
+    "protected_paths": [
+      ".agentify/policies",
+      ".agentify/runtime",
+      ".agentify/state-transactions",
+      ".github",
+      "package-lock.json",
+      "package.json"
+    ],
+    "allowed_tools": [],
+    "forbidden_actions": [
+      "application source update",
+      "dependency update",
+      "permission expansion",
+      "policy update",
+      "runtime code update",
+      "workflow update"
+    ],
+    "approval_required": true,
+    "numeric_limit": null,
+    "unit": null
+  },
+  "content_digest": "2e6f28fb2c51d3454023191b3f98f64ab53fda4bf657de007a2560a230331377"
+}

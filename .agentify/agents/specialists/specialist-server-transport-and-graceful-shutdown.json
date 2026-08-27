@@ -1,0 +1,63 @@
+{
+  "schema_version": "1",
+  "agent_id": "specialist-server-transport-and-graceful-shutdown",
+  "revision": 1,
+  "role": "specialist",
+  "display_name": "Server Transport And Graceful Shutdown Specialist",
+  "domain": "Server transport and graceful shutdown",
+  "status": "active",
+  "read_only": true,
+  "write_authority": "none",
+  "github_write_authority": "none",
+  "memory_kinds": [
+    "codebase",
+    "episode",
+    "procedure",
+    "specialist"
+  ],
+  "supporting_commit": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+  "evidence": [
+    {
+      "evidence_id": "evidence-22aa5a05cda6b6714961c343",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/extract/connect_info.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "d59709f888674c3716291221187c763a44b964dbbc9b796e11117aab4c1fc753",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/extract/connect_info.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-24238744796128186a481f13",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/serve/listener.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "b4db480596099da969d0720c0623318fb5d720907a3b4defd9e8476b80bbaab9",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/serve/listener.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    },
+    {
+      "evidence_id": "evidence-265109677030dfce2f9ddb92",
+      "source_type": "validated_bootstrap",
+      "repository_path": "axum/src/serve/mod.rs",
+      "commit_sha": "3d78036dcac289d6c1d54934708acb6a5bd73686",
+      "sha256": "1ec72d2128a5600fb847f7133ae4a3588327c8048c53132d50f59eb2dfb986d4",
+      "line_start": null,
+      "line_end": null,
+      "external_ref": null,
+      "description": "Tracked repository evidence for specialist and procedure discovery: axum/src/serve/mod.rs",
+      "observed_at": "2026-08-20T16:49:53.000Z",
+      "actor": "agentify-specialist-discovery"
+    }
+  ],
+  "created_at": "2026-08-27T10:55:07.177Z",
+  "updated_at": "2026-08-27T10:55:07.177Z",
+  "content_digest": "d5fafde310c063e80287e77ab6271f1d62bf2983e837da2a22eba3ddf44fbeb2"
+}
